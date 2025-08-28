@@ -2,9 +2,10 @@
 
 For the 1D Burgers equation problem, examples based on the following high-precision numerical method are provided:
 
-- RKDG
-- FV-WENO
-- FD-WENO
+- DG-RK3
+- FD-RK3-WENO5
+- FV-Euler-Godunov
+- FV-RK3-WENO5
 
 
 C++23 is required, with the following feature support:
