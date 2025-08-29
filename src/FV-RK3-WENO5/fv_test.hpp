@@ -26,8 +26,9 @@ void FV_plot_test(Config cfg, SolverType solver,
         auto uh = std::vector<double>(n);
 
         for (size_t j = 0; j < n; j++) {
-            double tmp = g.integrate(
-                [=](double s) { return cfg.init(x[j] + s * dx / 2); });
+            double tmp = g.integrate([=](double s) {
+                return cfg.init(x[j] + s * dx / 2);
+            }) * dx / 2;
             uh[j] = tmp / dx;
         }
 
@@ -65,8 +66,9 @@ void FV_order_test(Config cfg, SolverType solver, const char *filename) {
         auto uh = std::vector<double>(n);
 
         for (size_t j = 0; j < n; j++) {
-            double tmp = g.integrate(
-                [=](double s) { return cfg.init(x[j] + s * dx / 2); });
+            double tmp = g.integrate([=](double s) {
+                return cfg.init(x[j] + s * dx / 2);
+            }) * dx / 2;
             uh[j] = tmp / dx;
         }
 
